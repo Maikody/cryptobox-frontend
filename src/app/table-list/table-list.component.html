@@ -1,0 +1,36 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title ">Cryptocurrency Prices by Market Cap</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive table-hover">
+                            <table mat-table class="table">
+                                <thead class="text-primary">
+                                <th mat-header-cell mat-sort-header>Rank</th>
+                                <th>Coin</th>
+                                <th>Price (USD)</th>
+                                <th>Price 24h</th>
+                                <th>Market Cap</th>
+                                </thead>
+                                <tbody class="text-md-start"f>
+                                <tr *ngFor="let coin of coins$ | async">
+                                    <td>{{ coin.market_cap_rank }}</td>
+                                    <td> <img src="{{ coin.image }}" style="margin-right:15px"><b>{{ coin.name }}</b></td>
+                                    <td class="text-primary">{{ coin.current_price }}</td>
+                                    <td [ngClass]="coin.price_change_percentage_24h > 0 ? 'text-success' : 'text-danger'"> {{ coin.price_change_percentage_24h }} </td>
+                                    <td>{{ coin.market_cap }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

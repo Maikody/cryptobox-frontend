@@ -1,0 +1,19 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="card card-plain">
+          <div class="card-header card-header-info">
+              <h4 class="card-title">Your Bitcoin Address: {{ address }} </h4>
+              <p class="card-category">Share your address or scan QR code to receive Bitcoin from anyone around the world.
+              </p>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card-body">
+                    <img src="{{ qrCode.code }}" height="300" width="300" alt="Bitcoin QR Code" />
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

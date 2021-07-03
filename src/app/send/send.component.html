@@ -1,0 +1,60 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Send Bitcoin</h4>
+            <p class="card-category"></p>
+        </div>
+        <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="submit(f)">
+                <div class="form-group">
+                    <label for="to">
+                        To
+                    </label>
+                    <input required ngModel name="to" #to="ngModel" id="to" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="to.touched && to.invalid">
+                        <div *ngIf="to.errors?.required">
+                                Address is required.                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">
+                        Amount
+                    </label>
+                    <input required ngModel name="amount" #amount="ngModel" id="amount" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="amount.touched && amount.invalid">
+                        <div *ngIf="amount.errors?.required">
+                                Amount of BTC is required.                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">
+                        Descritpion (optional)
+                    </label>
+                    <textarea ngModel name="decription" id="description" cols="10" rows="3" class="form-control"></textarea>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ngModel name="isSubscribed"> Subscribe to mailing list
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMethod"></label>
+                    <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+                        <option *ngFor="let method of contactMethods" [value]="method.id">{{ method.name }}</option>
+                    </select>
+                </div>          
+            
+                <button class="btn btn-info" [disabled]="f.invalid">
+                    Send
+                </button>
+            </form> 
+        </div>
+    </div>
+</div>
